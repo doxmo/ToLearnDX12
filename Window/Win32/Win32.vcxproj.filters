@@ -21,8 +21,8 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\WindowWin32.h">
-      <Filter>Common</Filter>
+    <ClInclude Include="WindowWin32.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -32,8 +32,8 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\WindowWin32.cpp">
-      <Filter>Common</Filter>
+    <ClCompile Include="WindowWin32.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

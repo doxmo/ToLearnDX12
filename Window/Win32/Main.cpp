@@ -1,4 +1,4 @@
-#include "..\..\Common\WindowWin32.h"
+#include "WindowWin32.h"
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmdLine, int cmdShow)
 {
