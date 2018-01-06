@@ -1,4 +1,4 @@
-#include "Direct3DViewSource.h"
+#include "FactoryView.h"
 
 using namespace Windows::ApplicationModel::Core;
 
@@ -6,7 +6,8 @@ using namespace Windows::ApplicationModel::Core;
 [Platform::MTAThread]
 int main(Platform::Array<Platform::String^>^)
 {
-	auto direct3DApplicationSource = ref new Direct3DViewSource();
-	CoreApplication::Run(direct3DApplicationSource);
-	return 0;
+	auto factoryView = ref new FactoryView();
+	CoreApplication::Run(factoryView);
+	
+	return EXIT_SUCCESS;
 }

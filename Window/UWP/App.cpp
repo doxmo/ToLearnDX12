@@ -7,14 +7,13 @@ using namespace Windows::Foundation;
 using namespace Windows::Graphics::Display;
 
 void App::Initialize(Windows::ApplicationModel::Core::CoreApplicationView ^applicationView)
-{
+{	
 	applicationView->Activated += ref new TypedEventHandler<CoreApplicationView^, IActivatedEventArgs^>(this, &App::OnActivated);
 }
 
 void App::SetWindow(Windows::UI::Core::CoreWindow ^window)
 {	
 	window->VisibilityChanged += ref new TypedEventHandler<CoreWindow^, VisibilityChangedEventArgs^>(this, &App::OnVisibilityChanged);
-	DisplayInformation^ currentDisplayInformation = DisplayInformation::GetForCurrentView();	
 }
 
 void App::Load(Platform::String ^entryPoint)
@@ -23,7 +22,7 @@ void App::Load(Platform::String ^entryPoint)
 
 void App::Run()
 {
-	while (!mWindowClosed)
+	while (true)
 	{
 		if (mWindowVisible)
 		{
@@ -42,7 +41,7 @@ void App::Uninitialize()
 
 void App::OnActivated(Windows::ApplicationModel::Core::CoreApplicationView^ applicationView, Windows::ApplicationModel::Activation::IActivatedEventArgs^ args)
 {
-	// El método Run() no iniciará hasta sea activado el CoreWindow
+	// El método Run() no iniciará hasta que sea activado el CoreWindow
 	// Si no se activa, si inicia el método Run(), pero no se muestra nada. 
 	CoreWindow::GetForCurrentThread()->Activate();
 }

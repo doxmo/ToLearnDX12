@@ -4,7 +4,7 @@ ref class App sealed : public Windows::ApplicationModel::Core::IFrameworkView
 {
 public:
 	
-	// Heredado a través de la ingerfaz IFrameworkView
+	// Heredado a través de la interfaz IFrameworkView
 	virtual void Initialize(Windows::ApplicationModel::Core::CoreApplicationView ^applicationView);
 	virtual void SetWindow(Windows::UI::Core::CoreWindow ^window);
 	virtual void Load(Platform::String ^entryPoint);
@@ -19,6 +19,6 @@ protected:
 	void OnVisibilityChanged(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::VisibilityChangedEventArgs^ args);
 
 private:
-	bool mWindowClosed = false;
+
 	bool mWindowVisible = true;
 };
