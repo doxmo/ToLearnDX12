@@ -1,6 +1,4 @@
 #pragma once
-#include <Windows.h>
-#include <string>
 
 class WindowWin32
 {
@@ -21,7 +19,7 @@ public:
 protected:
 	HINSTANCE mAppInstance = nullptr;
 	HWND mMainWnd = nullptr;
-
+	
 	static WindowWin32 *mWindowWin32;
 	// título de la ventana
 	std::wstring mMainWndCaption = L"D3D";

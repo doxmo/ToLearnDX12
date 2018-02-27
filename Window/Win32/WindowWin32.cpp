@@ -1,5 +1,4 @@
 #include "WindowWin32.h"
-#include <cassert>
 
 WindowWin32 * WindowWin32::mWindowWin32 = nullptr;
 
@@ -17,6 +16,7 @@ WindowWin32::WindowWin32(HINSTANCE appInstance)
 
 WindowWin32::~WindowWin32()
 {
+	
 }
 
 bool WindowWin32::Initialize()
@@ -34,13 +34,14 @@ bool WindowWin32::Initialize()
 	wc.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
 	wc.lpszMenuName = nullptr;
 	wc.lpszClassName = L"MainWnd";
-	
+
 	// se registra la clase con las propiedades antes configuradas
 	if (!RegisterClassEx(&wc))
 	{
 		MessageBox(0, L"El registro de la ventana falló.", 0, 0);
 		return false;
 	}
+
 	// se reajusta el tamaño, especificado por el ancho y alto, en donde se dibujara
 	RECT rc = { 0, 0, mClientWidth, mClientHeight };
 	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, false);
@@ -49,7 +50,7 @@ bool WindowWin32::Initialize()
 	// se crea la ventana
 	mMainWnd = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"MainWnd", mMainWndCaption.c_str(),
 		WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, nullptr, nullptr, mAppInstance, nullptr);
-
+	
 	if (!mMainWnd)
 	{
 		MessageBox(0, L"CreateWindow Failed.", 0, 0);
@@ -68,7 +69,7 @@ LRESULT WindowWin32::MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_DESTROY:
 		PostQuitMessage(0);
-		return 0;
+		return EXIT_SUCCESS;
 	default:
 		// Todos los mensajes que no se especifiquen los manejará DefWindowProc
 		return DefWindowProc(hwnd, msg, wParam, lParam);
